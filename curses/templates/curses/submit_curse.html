@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}curses {% endblock %}
+{%block content %}
+submit a curse:
+<h1>{{curse.title_text}}</h1>
+
+<p> by {{curse.author}}</p>
+<p>{{curse.pub_date}}</p>
+<p>{{curse.curse_text}}</p>
+{% endblock %}

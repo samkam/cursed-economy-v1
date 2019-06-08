@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}vote {% endblock %}
+{%block content %}
+Which curse is worse?
+<h1>{{curse1.title_text}}</h1>
+
+<p> by {{curse1.author}}</p>
+<p>{{curse1.pub_date}}</p>
+<p>{{curse1.curse_text}}</p>
+
+<h1>{{curse2.title_text}}</h1>
+
+<p> by {{curse2.author}}</p>
+<p>{{curse2.pub_date}}</p>
+<p>{{curse2.curse_text}}</p>
+{% if user.is_authenticated %}
+<h2> submit your own!</h2>
+<form action="{% url 'submit_curse'%}" method="post">
+    {% csrf_token %}
+    <label for="title">curse title:</label>
+    <input type="text" name="title" id="title">
+    <br>
+    <label for="curse_text">text: </label>
+    <input type="text" name="curse" id="curse_text">
+
+    <input type="submit">
+</form>
+{% else %}
+<p>to submit your own curses, log in or create an account.</p>
+{% endif %}
+{% endblock %}

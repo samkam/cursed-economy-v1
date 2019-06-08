@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}curses {% endblock %}
+{%block content %}
+<h1>Your Curses</h1>
+{% if curses%}
+<table>
+    <tr>
+        <th> title</th>
+        <th> description </th>
+        <th>date</th>
+    </tr>
+
+{% for curse in curses%}
+    <tr>
+        <td>{{curse.title_text}}</td>
+        <td>{{curse.curse_text}}</td>
+        <td>{{curse.pub_date}}</td>
+    </tr>
+
+{% endfor %}
+</table>
+{% else%}
+<p>you have no submitted curses</p>
+{% endif %}
+{% endblock %}
